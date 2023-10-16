@@ -29,30 +29,18 @@ func excuteTemplate(w http.ResponseWriter, filepath string) {
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	filepath := filepath.Join("templates", "home.tmpl")
-	excuteTemplate(w, filepath)
+	path := filepath.Join("templates", "home.tmpl")
+	excuteTemplate(w, path)
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
-	filepath := filepath.Join("templates", "contact.tmpl")
-	excuteTemplate(w, filepath)
+	path := filepath.Join("templates", "contact.tmpl")
+	excuteTemplate(w, path)
 }
 
 func faqHandler(w http.ResponseWriter, r *http.Request) {
-	faq := map[string]string{
-		"whats your name":         "my name is elias",
-		"how old are you":         "I am 28 years old",
-		"do you have any sibling": "I have just one brother",
-	}
-	fmt.Fprint(w, `
-		<h1>FAQ</h1>
-	`)
-	for k, v := range faq {
-		fmt.Fprint(w, fmt.Sprintf(`
-		<h2>%v</h2>
-		<p>%v</p>
-	`, k, v))
-	}
+	path := filepath.Join("templates", "faq.tmpl")
+	excuteTemplate(w, path)
 }
 
 func main() {
