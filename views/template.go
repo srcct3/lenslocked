@@ -16,7 +16,7 @@ func Parse(filepath string) (Template, error) {
 	t, err := template.ParseFiles(filepath)
 
 	if err != nil {
-		return Template{}, fmt.Errorf("Error parsing template: %v", err)
+		return Template{}, fmt.Errorf("Parsing template: %w", err)
 	}
 
 	return Template{
